@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BrainDump</string>
+    <string name="midnight_12to3">My favourite hour of the day</string>
+    <string name="midnight_3to6">Insomnia Merchant</string>
+    <string name="morning_6to12">Good Morning!</string>
+    <string name="afternoon_12to5">Good Afternoon</string>
+    <string name="evening_5to8">Almost through</string>
+    <string name="night_8to12">What a day</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

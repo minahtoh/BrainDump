@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi, How are you today"
+        android:id="@+id/greeting_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/md_theme_light_onPrimaryContainer"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/greeting_text"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/dump_cardview"
+        app:layout_constraintBottom_toTopOf="@+id/feelings_chart_title"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/feelings_chart_title"
+        android:layout_marginTop="15dp"
+        android:text="Feelings Chart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/feelings_chart"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/feelings_chart"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.androidplot.xy.XYPlot
+            android:id="@+id/feels_chart"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:rangeTitle="feelings"
+            app:domainTitle="days"
+            app:title="Feelings Chart"
+            app:titleTextColor="@color/md_theme_dark_onPrimaryContainer"
+            />
+
+    </RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

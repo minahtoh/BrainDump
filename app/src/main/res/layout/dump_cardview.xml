@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yesterday"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/date_of_dump"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/date_of_dump">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@color/md_theme_dark_onPrimary">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/feelings_title"
+                android:text="Felt:"
+                android:textStyle="bold"
+                android:textColor="@color/md_theme_dark_onPrimaryContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@+id/feelings_title"
+                app:layout_constraintTop_toTopOf="@+id/feelings_title"
+                app:layout_constraintBottom_toBottomOf="@+id/feelings_title"
+                android:src="@drawable/slightly_smiling_face_96"
+                android:id="@+id/feelings_title_text"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dumps:"
+                android:textStyle="bold"
+                android:id="@+id/dump_title"
+                app:layout_constraintTop_toBottomOf="@+id/feelings_title"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/md_theme_dark_onPrimaryContainer"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+                android:id="@+id/dump_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="when you feel like giving up just remember that day our teacher claimed he was a g..."
+                app:layout_constraintTop_toBottomOf="@+id/dump_title"
+                app:layout_constraintStart_toStartOf="@+id/dump_title"
+                android:textColor="@color/md_theme_dark_onTertiaryContainer"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

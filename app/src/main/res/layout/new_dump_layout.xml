@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:background="@color/md_theme_dark_onPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/i_feel_text"
+        android:text="I feel"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_dark_onPrimaryContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/mood_selector"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/i_feel_text"
+        >
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/select_mood">
+            <RadioButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/saddest"/>
+            <ImageView
+                android:src="@drawable/crying_face_96"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <RadioButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/sad"/>
+            <ImageView
+                android:src="@drawable/frowning_face_96"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <RadioButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/normal"
+                android:checked="true"/>
+            <ImageView
+                android:src="@drawable/slightly_smiling_face_96"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <RadioButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/happy"/>
+            <ImageView
+                android:src="@drawable/smiling_face_with_smiling_eyes_96"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <RadioButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/happiest"/>
+            <ImageView
+                android:src="@drawable/grinning_face_with_big_eyes_96"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+        </RadioGroup>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dump"
+        android:textStyle="bold"
+        android:id="@+id/dump_title"
+        android:textColor="@color/md_theme_dark_onPrimaryContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mood_selector"
+        android:layout_marginTop="5dp"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dump_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="whats happening..."
+        android:layout_marginTop="5dp"
+        app:boxBackgroundColor="@color/md_theme_dark_onPrimary"
+        android:textColorHint="@color/md_theme_dark_onPrimaryContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_title">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dump_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/md_theme_dark_onPrimaryContainer"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dump_button"
+        app:cornerRadius="10dp"
+        android:text="DUMP!"
+        android:textColor="@color/md_theme_dark_onPrimaryContainer"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_label"
+        android:layout_marginTop="15dp"/>
+
+    <com.example.braindump.rating.StarRatingView
+        android:layout_width="wrap_content"
+        android:id="@+id/star_rating"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_button"
+        android:layout_marginTop="5dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
