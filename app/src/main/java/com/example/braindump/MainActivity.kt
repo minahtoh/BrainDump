@@ -1,7 +1,11 @@
 package com.example.braindump
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -11,16 +15,22 @@ import com.example.braindump.db.DumpDatabase
 import com.example.braindump.repository.DumpsRepository
 import com.example.braindump.viewmodel.DumpsViewModelFactory
 import com.example.braindump.viewmodel.DumpsViewmodel
+import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var viewModel : DumpsViewmodel
     private lateinit var navController: NavController
 
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val dumpsRepository = DumpsRepository(DumpDatabase.getDatabase(this))
         val dumpsProvider = DumpsViewModelFactory(dumpsRepository)
