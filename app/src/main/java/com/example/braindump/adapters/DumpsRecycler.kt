@@ -2,23 +2,27 @@ package com.example.braindump.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.PopupMenu
 import android.widget.PopupWindow
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.braindump.R
+import com.example.braindump.constants.currentTime
+import com.example.braindump.constants.weeklyMilliseconds
 import com.example.braindump.databinding.DumpCardviewBinding
 import com.example.braindump.model.Dump
-import com.example.braindump.model.formattedDate
+import com.example.braindump.model.newDate
+import com.example.braindump.model.oldDate
+import java.lang.System.currentTimeMillis
 
 class DumpsRecycler: ListAdapter<Dump,DumpsRecycler.TheViewHolder>(DiffCallback) {
     inner class TheViewHolder(private val binding: DumpCardviewBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(dump: Dump){
             binding.apply {
                 dumpText.text = dump.dump
-                dateOfDump.text = dump.formattedDate()
+                dateOfDump.text = if(currentTime - dump.date >= weeklyMilliseconds){
+                    dump.oldDate()
+                }else dump.newDate()
                 feelingsTitleText.setImageResource(
                     when(dump.feelings) {
                          1 -> { R.drawable.crying_face_96 }

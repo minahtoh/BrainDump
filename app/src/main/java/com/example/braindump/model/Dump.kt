@@ -15,8 +15,14 @@ data class Dump(
     val date: Long,
 ):Serializable
 
-fun Dump.formattedDate(): String{
+fun Dump.newDate(): String{
     val format = "EEEE, h:mm a"
+    val time = SimpleDateFormat(format).format(Date(date))
+    return time
+}
+
+fun Dump.oldDate(): String{
+    val format = "MMM dd, EEEE, h:mm a"
     val time = SimpleDateFormat(format).format(Date(date))
     return time
 }

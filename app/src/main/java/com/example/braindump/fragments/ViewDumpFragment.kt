@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.braindump.R
+import com.example.braindump.constants.currentTime
+import com.example.braindump.constants.weeklyMilliseconds
 import com.example.braindump.databinding.ViewDumpLayoutBinding
-import com.example.braindump.model.formattedDate
+import com.example.braindump.model.newDate
+import com.example.braindump.model.oldDate
 
 class ViewDumpFragment: Fragment() {
     private lateinit var binding: ViewDumpLayoutBinding
@@ -37,7 +40,9 @@ class ViewDumpFragment: Fragment() {
         val dump = args.dump
         binding.apply {
             dumpTextview.text = dump.dump
-            val formattedDate = dump.formattedDate()
+            val formattedDate = if(currentTime - dump.date >= weeklyMilliseconds){
+                dump.oldDate()
+            }else dump.newDate()
             dumpDate.text = formattedDate
             feelingsIcon.setImageResource(
                 when(dump.feelings) {
