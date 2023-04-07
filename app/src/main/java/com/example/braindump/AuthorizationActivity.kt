@@ -17,7 +17,7 @@ class AuthorizationActivity:AppCompatActivity() {
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState,)
+        super.onCreate(savedInstanceState)
         binding = ActivityAuthorizationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -53,7 +53,7 @@ class AuthorizationActivity:AppCompatActivity() {
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("BrainDump")
-            .setSubtitle("Authorize")
+            .setSubtitle("")
             .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG)
             .setNegativeButtonText("Cancel")
             .build()
